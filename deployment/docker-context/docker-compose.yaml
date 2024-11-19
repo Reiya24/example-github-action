@@ -1,5 +1,5 @@
 services:
-  ${REPOSITORY_NAME}:
+  example-github-action:
     container_name: ${REPOSITORY_NAME}
     restart: unless-stopped
     image: ${DOCKER_IMAGE}:${IMAGE_TAG}
