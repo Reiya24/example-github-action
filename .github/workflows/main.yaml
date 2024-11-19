@@ -67,8 +67,9 @@ jobs:
 
     - name: Deploy docker-context
       run: |-
-        export IMAGE_TAG=$GITHUB_SHA
-        export DOCKER_IMAGE=$DOCKER_IMAGE
+        docker ps
+        export IMAGE_TAG="$GITHUB_SHA"
+        export DOCKER_IMAGE="$DOCKER_IMAGE"
         export REPOSITORY_NAME=${{ github.event.repository.name }}
         docker compose -f deployment/docker-context/docker-compose.yaml up -d
 
