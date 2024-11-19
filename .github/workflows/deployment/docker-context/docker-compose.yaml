@@ -1,7 +1,13 @@
 services:
-  learn-gitlab-ci:
-    container_name: learn-gitlab-ci
+  ${REPOSITORY_NAME}:
+    container_name: ${REPOSITORY_NAME}
     restart: unless-stopped
     image: registry.gitlab.com/reiya24/learn-gitlab-ci/docker:${IMAGE_TAG}
     ports:
       - "127.0.0.1:51280:80"
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 500M
+        
