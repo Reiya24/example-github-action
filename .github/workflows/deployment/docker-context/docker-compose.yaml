@@ -1,0 +1,7 @@
+services:
+  learn-gitlab-ci:
+    container_name: learn-gitlab-ci
+    restart: unless-stopped
+    image: registry.gitlab.com/reiya24/learn-gitlab-ci/docker:${IMAGE_TAG}
+    ports:
+      - "127.0.0.1:51280:80"
