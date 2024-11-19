@@ -68,7 +68,7 @@ jobs:
     - name: Deploy docker-context
       run: |-
         docker context use remote
-        export IMAGE_TAG=${{ GITHUB_SHA }}
+        export IMAGE_TAG=$GITHUB_SHA
         export REPOSITORY_NAME=${{ github.event.repository.name }}
         docker compose -f deployment/docker-context/docker-compose.yaml up -d
 
