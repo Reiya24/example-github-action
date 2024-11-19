@@ -27,9 +27,9 @@ jobs:
       with:
         args: >
           -Dsonar.qualitygate.wait=true
-          -Dsonar.projectKey=${{ github.event.repository.name }}:${{ github.ref_name }}
-          -Dsonar.projectName=${{ github.event.repository.name }}:${{ github.ref_name }}
-          -Dsonar.organization=reiya
+          -Dsonar.projectKey=${{ github.event.repository.name }}
+          -Dsonar.projectName=${{ github.event.repository.name }}
+          -Dsonar.organization=Reiya Tenggara
       env:
         SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
 
