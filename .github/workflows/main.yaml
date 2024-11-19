@@ -24,8 +24,15 @@ jobs:
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@v3.1.0
+      with:
+        args: >
+          -Dsonar.qualitygate.wait=true
+          -Dsonar.projectKey=${{ github.event.repository.name }}:${{ github.ref_name }}
+          -Dsonar.projectName=${{ github.event.repository.name }}:${{ github.ref_name }}
       env:
         SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+
+
 
 
     - name: Login to Docker Hub
