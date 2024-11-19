@@ -29,7 +29,7 @@ jobs:
           -Dsonar.qualitygate.wait=true
           -Dsonar.projectKey=${{ github.event.repository.name }}
           -Dsonar.projectName=${{ github.event.repository.name }}
-          -Dsonar.organization="Reiya
+          -Dsonar.organization=reiya
       env:
         SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
 
