@@ -59,7 +59,7 @@ jobs:
     - name: create docker-context
       uses: arwynfr/actions-docker-context@v2
       with:
-        docker_host: 'ssh://${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST}}:${{ secrets.SSH_PORT}}'
+        docker_host: 'ssh://${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST}}'
         context_name: 'remote'
         use_context: true
         ssh_cert: ${{ secrets.SSH_PUBLIC_KEY }}
