@@ -58,6 +58,7 @@ jobs:
 
     - name: Set up docker context over SSH authentication
       uses: amirmarmul/docker-context-ssh-action@v1
+      context-use: true
       with:
         ssh-host: ${{ secrets.SSH_HOST }}
         ssh-username: ${{ secrets.SSH_USER }}
