@@ -12,7 +12,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: ahmadnassri/action-workflow-queue@v1 #If the same workflow is already running from a previous commit, wait for it to finish
+    # - uses: ahmadnassri/action-workflow-queue@v1 #If the same workflow is already running from a previous commit, wait for it to finish
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
