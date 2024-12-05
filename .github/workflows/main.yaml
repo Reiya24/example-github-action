@@ -71,8 +71,7 @@ jobs:
         export IMAGE_TAG="$GITHUB_SHA"
         export DOCKER_IMAGE="$DOCKER_IMAGE"
         export REPOSITORY_NAME=${{ github.event.repository.name }}
-        docker compose -f deployment/docker-context/docker-compose.yaml up -d
-
+        docker compose -f deployment/docker-context/docker-compose.yaml up -d --force-recreate
 
     - name: Check the deployed service URL
       uses: jtalk/url-health-check-action@v4
