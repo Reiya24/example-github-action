@@ -56,15 +56,6 @@ jobs:
       run: |-
         docker push "$DOCKER_IMAGE":"$GITHUB_SHA"
 
-    - name: create docker-context
-      uses: arwynfr/actions-docker-context@v2
-      with:
-        docker_host: 'ssh://${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}'
-        context_name: 'remote'
-        use_context: true
-        ssh_cert: ${{ secrets.SSH_CERT }}
-        ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
     - name: Set up docker context over SSH authentication
       uses: amirmarmul/docker-context-ssh-action@v1
       with:
