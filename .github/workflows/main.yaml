@@ -12,7 +12,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    # - uses: ahmadnassri/action-workflow-queue@v1 #If the same workflow is already running from a previous commit, wait for it to finish
+    - uses: ahmadnassri/action-workflow-queue@v1 #If the same workflow is already running from a previous commit, wait for it to finish
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
@@ -65,12 +65,12 @@ jobs:
     #     ssh_cert: ${{ secrets.SSH_CERT }}
     #     ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Set up docker context over SSH authentication
-        uses: amirmarmul/docker-context-ssh-action@v1
-        with:
-          ssh-host: ${{ secrets.SSH_HOST }}
-          ssh-username: ${{ secrets.SSH_USER }}
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Set up docker context over SSH authentication
+      uses: amirmarmul/docker-context-ssh-action@v1
+      with:
+        ssh-host: ${{ secrets.SSH_HOST }}
+        ssh-username: ${{ secrets.SSH_USER }}
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Deploy docker-context
       run: |-
