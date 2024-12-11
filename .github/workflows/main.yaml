@@ -14,23 +14,23 @@ jobs:
     if: containes('deploy-static/', github.ref)
     runs-on: ubuntu-latest
     steps:
-    - uses: ahmadnassri/action-workflow-queue@v1 #If the same workflow is already running from a previous commit, wait for it to finish
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+      - uses: ahmadnassri/action-workflow-queue@v1 #If the same workflow is already running from a previous commit, wait for it to finish
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    - name: Inject .env
-      uses: timheuer/base64-to-file@v1.2
-      with:
-        fileName: '.env'
-        fileDir: '.'
-        encodedString: ${{ secrets.ENV }}
+      - name: Inject .env
+        uses: timheuer/base64-to-file@v1.2
+        with:
+          fileName: '.env'
+          fileDir: '.'
+          encodedString: ${{ secrets.ENV }}
 
-    - name: Deploy docker-context
-      run: |-
-        npm install pnpm -g
-        pnpm install
-        pnpm run build
+      - name: Deploy docker-context
+        run: |-
+          npm install pnpm -g
+          pnpm install
+          pnpm run build
 
       - name: deploy to a server using rsync
         if: github.ref == 'refs/heads/deploy-static/rsync'
