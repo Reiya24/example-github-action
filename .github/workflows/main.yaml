@@ -11,7 +11,7 @@ env:
 
 jobs:
   build-static:
-    if: containes('deploy-static/', github.ref)
+    if: contains('deploy-static/', github.ref)
     runs-on: ubuntu-latest
     steps:
       - uses: ahmadnassri/action-workflow-queue@v1 #If the same workflow is already running from a previous commit, wait for it to finish
